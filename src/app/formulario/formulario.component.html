@@ -1,0 +1,29 @@
+<p>formulario works!</p>
+
+<form>
+    <p>nombre: <input type="text" name="nombre" [(ngModel)]="nombre"></p>
+   <p>apellido:  <input type="text" name="apellido" [(ngModel)]="apellido"></p>
+   <p>cargo:  <input type="text" name="cargo" [(ngModel)]="cargo"></p>
+   <input type="submit" value="Registrar" (click)="registrarUsuario()">
+</form>
+
+
+<br>
+
+
+<p *ngIf="registrado; else sinRegistrar">{{mensaje}} con el nombre de {{nombre}} {{apellido}} y tiene el cargo de 
+    <span [ngClass]="{paraDirectores:cargo=='directores'}">  {{cargo}} </span></p>
+    <!-- [ngStyle]="{color:cargo=='director'? 'red':'blue'}" -->
+
+
+ <ng-template #sinRegistrar>
+    <p>nadie registrado</p>
+</ng-template> 
+
+<br>
+
+<ul>
+    <li *ngFor="let entrada of entradas;let i=index ">
+        <p><span style="font-size:large;font-weight:bolder">{{entrada.titulo}}</span>. entrada {{i + 1}}</p>  
+    </li>
+</ul>
