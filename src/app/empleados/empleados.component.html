@@ -1,0 +1,81 @@
+<p>Ingrese un empleado nuevo</p>
+<form class="form-group">
+    <div class="input-group">
+        <span class="input-group-text">Nombre:</span>
+        <input type="text" name="nombre" class="form-control" [(ngModel)]="empleado.nombre">
+    </div>
+    <br>
+    <div class="input-group">
+        <span class="input-group-text">Apellido:</span>
+        <input type="text" name="apellido " class="form-control" [(ngModel)]="empleado.apellido">
+    </div>
+    <br>
+    <div class="input-group">
+        <span class="input-group-text">Cargo:</span>
+        <input type="text" name="cargo" class="form-control" [(ngModel)]="empleado.cargo">
+    </div>
+    <br>
+    <div class="input-group">
+        <span class="input-group-text">Salario:</span>
+        <div class="float-end">
+            <input type="text" name="salario" class="form-control" [(ngModel)]="empleado.salario">
+        </div>
+        
+    </div>
+    <br>
+    <input type="submit" class="btn btn-primary" value="Agregar" [disabled]="!VerificarCampos()" (click)="AgregarEmpleado()">
+</form>
+<br>
+
+
+<p class="text-capitalize">Lista de emppleados:</p>
+<br>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">
+                <p>#</p>
+            </th>
+            <th scope="col">
+                <p>Nombre:</p>
+            </th>
+            <th scope="col">
+                <p>Apellido:</p>
+            </th>
+            <th scope="col">
+                <p>Cargo:</p>
+            </th>
+            <th scope="col">
+                <p>Salario:</p>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let emp of empleados;let i=index ">
+          <th scope="row">{{i + 1}}</th>
+          <td>
+            <p><span >{{emp.nombre}}</span></p>  
+          </td>
+          <td>
+            <p><span >{{emp.apellido}}</span></p>  
+          </td>
+          <td>
+            <p><span>{{emp.cargo}}</span></p>  
+          </td>
+          <td>
+            <p><span >{{emp.salario}}</span></p>  
+          </td>
+        </tr>
+    </tbody>
+ 
+</table>
+<!-- <ul>
+    <li >
+       
+       
+        
+      
+    </li>
+</ul> -->
