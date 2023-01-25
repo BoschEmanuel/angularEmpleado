@@ -1,1 +1,56 @@
-<p>empleado-hijo-c works!</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col-md-1">
+                <p>#</p>
+            </th>
+            <th scope="col-md-2">
+                <p>Nombre:</p>
+            </th>
+            <th scope="col-md-2">
+                <p>Apellido:</p>
+            </th>
+            <th scope="col-md-2">
+                <p>Cargo:</p>
+            </th>
+            <th scope="col-md-2">
+                <p>Salario:</p>
+            </th>
+            <th scope="col-md-2">
+                <p>Caracteristicas:</p>
+            </th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let emp of empleados;let i=index">
+   
+        <tr >
+          
+          <th scope="row">{{i + 1}}</th>
+          <td>
+            <p><span >{{emp.nombre}}</span></p>  
+          </td>
+          <td>
+            <p><span >{{emp.apellido}}</span></p>  
+          </td>
+          <td>
+            <p><span>{{emp.cargo}}</span></p>  
+          </td>
+          <td>
+            <p><span >{{emp.salario}}</span></p>  
+          </td>
+          <td>
+            <span *ngFor="let caracteristica of emp.arrayCaracteristicas;let i=index">{{caracteristica.trim()}} </span>
+           
+          </td>
+        
+        </tr>
+        <tr scope="row">
+            <td colspan="12">
+                <app-caracteristicas-empleado-c (caracteristicasEmpleados)="agregarCaracteristica($event,emp)"></app-caracteristicas-empleado-c>
+            </td>
+        </tr>
+        
+    </tbody>
+ 
+</table> 
+

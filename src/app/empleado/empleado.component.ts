@@ -11,5 +11,6 @@ export class EmpleadoComponent {
   apellido:string ="";
   cargo:string="";
   salario:number=0;
+  arrayCaracteristicas = [''];
 
 }

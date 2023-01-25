@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { EmpleadosComponent } from './empleados/empleados.component';
 import { EmpleadoComponent } from './empleado/empleado.component';
 import { EmpleadoHijoCComponent } from './empleado-hijo-c/empleado-hijo-c.component';
+import { CaracteristicasEmpleadoCComponent } from './caracteristicas-empleado-c/caracteristicas-empleado-c.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmpleadosComponent,
     EmpleadoComponent,
-    EmpleadoHijoCComponent
+    EmpleadoHijoCComponent,
+    CaracteristicasEmpleadoCComponent
   ],
   imports: [
     BrowserModule,

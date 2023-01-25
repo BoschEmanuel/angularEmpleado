@@ -1,0 +1,15 @@
+
+  <form class="form-inline">
+    <div class=" row">
+        <div class="form-group col-md-6">
+            <label for="nuevaCaracteristica" class="sr-only">Caracteristica:</label>
+            <input type="text" [(ngModel)]="nuevaCaracteristica" name="nuevaCaracteristica" id="nuevaCaracteristica" class="form-control">
+            
+        </div>
+        <div class="form-group col-md-4">
+            <input type="submit"  class="btn btn-primary mb-2  float-end mt-4" value="Agregar Caracteristica"  (click)="agregaCaracteristicas()">
+        </div>
+    </div>
+
+   
+  </form>

@@ -27,57 +27,7 @@
 </form>
 <br>
 
-<app-empleado-hijo-c></app-empleado-hijo-c>
-
-
-<p class="text-capitalize">Lista de emppleados:</p>
+<p class="text-capitalize">Lista de empleados:</p>
 <br>
 
-
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">
-                <p>#</p>
-            </th>
-            <th scope="col">
-                <p>Nombre:</p>
-            </th>
-            <th scope="col">
-                <p>Apellido:</p>
-            </th>
-            <th scope="col">
-                <p>Cargo:</p>
-            </th>
-            <th scope="col">
-                <p>Salario:</p>
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let emp of empleados;let i=index ">
-          <th scope="row">{{i + 1}}</th>
-          <td>
-            <p><span >{{emp.nombre}}</span></p>  
-          </td>
-          <td>
-            <p><span >{{emp.apellido}}</span></p>  
-          </td>
-          <td>
-            <p><span>{{emp.cargo}}</span></p>  
-          </td>
-          <td>
-            <p><span >{{emp.salario}}</span></p>  
-          </td>
-        </tr>
-    </tbody>
- 
-</table>
-<!-- <ul>
-    <li >
-       
-       
-        
-      
-    </li>
-</ul> -->
+<app-empleado-hijo-c  [empleados]="empleados"></app-empleado-hijo-c>

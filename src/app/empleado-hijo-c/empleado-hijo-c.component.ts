@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { EmpleadoComponent } from '../empleado/empleado.component';
 
 @Component({
   selector: 'app-empleado-hijo-c',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./empleado-hijo-c.component.css']
 })
 export class EmpleadoHijoCComponent {
+@Input() empleados: Array<EmpleadoComponent>;;
+
+// arrayCaracteristicas = [''];
+
+agregarCaracteristica(nuevaCaracteristica:string,empleado:EmpleadoComponent):void{
+  empleado.arrayCaracteristicas.push(nuevaCaracteristica);
+//this.arrayCaracteristicas.push(nuevaCaracteristica);
+}
 
 }
+ 
