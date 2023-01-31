@@ -24,8 +24,8 @@ export class EmpleadosComponent implements OnInit {
   
   
   AgregarEmpleado(): void {
-    this.miServicio.muestraMensaje("se agregara el empleado: " + this.empleado.nombre + " "
-      + this.empleado.apellido + " con el cargo de: " + this.empleado.cargo + " con un salario de: " + this.empleado.salario);
+    // this.miServicio.muestraMensaje("se agregara el empleado: " + this.empleado.nombre + " "
+    //   + this.empleado.apellido + " con el cargo de: " + this.empleado.cargo + " con un salario de: " + this.empleado.salario);
     //this.empleados.push(this.empleado);
     this.empleadosService.agregarEmpleadoServicio(this.empleado);
     this.empleado = new EmpleadoComponent();

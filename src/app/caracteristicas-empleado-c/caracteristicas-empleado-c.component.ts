@@ -17,7 +17,7 @@ constructor(private miServicio: ServicioEmpleadosService) {
 
 
 agregaCaracteristicas(){
-  alert("la caracteristica a agregar es: "+ this.nuevaCaracteristica );
+  this.miServicio.muestraMensaje("la caracteristica a agregar es: "+ this.nuevaCaracteristica);
   this.caracteristicasEmpleados.emit(this.nuevaCaracteristica +";");
   this.nuevaCaracteristica = "";
 }
