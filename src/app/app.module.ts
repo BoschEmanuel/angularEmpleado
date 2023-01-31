@@ -9,6 +9,7 @@ import { EmpleadoComponent } from './empleado/empleado.component';
 import { EmpleadoHijoCComponent } from './empleado-hijo-c/empleado-hijo-c.component';
 import { CaracteristicasEmpleadoCComponent } from './caracteristicas-empleado-c/caracteristicas-empleado-c.component';
 import { ServicioEmpleadosService } from './servicio-empleados.service';
+import { EmpleadosService } from './empleados.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { ServicioEmpleadosService } from './servicio-empleados.service';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [ServicioEmpleadosService],
+  providers: [ServicioEmpleadosService,EmpleadosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { EmpleadoComponent } from '../empleado/empleado.component';
+import { EmpleadosService } from '../empleados.service';
 import { ServicioEmpleadosService } from '../servicio-empleados.service';
 
 @Component({
@@ -7,20 +8,26 @@ import { ServicioEmpleadosService } from '../servicio-empleados.service';
   templateUrl: './empleados.component.html',
   styleUrls: ['./empleados.component.css']
 })
-export class EmpleadosComponent {
+export class EmpleadosComponent implements OnInit {
 
   empleado: EmpleadoComponent = new EmpleadoComponent();
   empleados: Array<EmpleadoComponent>;
 
-  constructor(private miServicio: ServicioEmpleadosService) {
+  constructor(private miServicio: ServicioEmpleadosService,private empleadosService:EmpleadosService) {
+   
+  }
+  ngOnInit(): void {
     this.empleados = new Array<EmpleadoComponent>();
-
+    this.empleados = this.empleadosService.empleados;
   }
 
+  
+  
   AgregarEmpleado(): void {
     this.miServicio.muestraMensaje("se agregara el empleado: " + this.empleado.nombre + " "
       + this.empleado.apellido + " con el cargo de: " + this.empleado.cargo + " con un salario de: " + this.empleado.salario);
-    this.empleados.push(this.empleado);
+    //this.empleados.push(this.empleado);
+    this.empleadosService.agregarEmpleadoServicio(this.empleado);
     this.empleado = new EmpleadoComponent();
   }
   VerificarCampos(): boolean {
