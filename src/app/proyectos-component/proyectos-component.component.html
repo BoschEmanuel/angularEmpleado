@@ -1,0 +1,41 @@
+   <h1>{{title}}</h1>
+<div class="container">
+    <p>proyectos-component works!</p>
+    <form class="form-group">
+        <div class="input-group">
+            <span class="input-group-text">Nombre:</span>
+            <input type="text" name="nombre" class="form-control" [(ngModel)]="empleado.nombre">
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-text">Apellido:</span>
+            <input type="text" name="apellido " class="form-control" [(ngModel)]="empleado.apellido">
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-text">Cargo:</span>
+            <input type="text" name="cargo" class="form-control" [(ngModel)]="empleado.cargo">
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-text">Salario:</span>
+            <div class="float-end">
+                <input type="text" name="salario" class="form-control" [(ngModel)]="empleado.salario">
+            </div>
+            
+        </div>
+        <br>
+        <input type="submit" class="btn btn-primary" value="Agregar" [disabled]="!VerificarCampos()" (click)="AgregarEmpleado()">
+    </form>
+    <br>
+
+
+
+    <div style="text-align: center;">
+        <button class="btn btn-primary" (click)="volverHome()">
+            Ir a inicio
+        </button>
+    </div>
+</div>
+
+

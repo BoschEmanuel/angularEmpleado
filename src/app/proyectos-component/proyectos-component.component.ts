@@ -1,26 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import {  Router } from '@angular/router';
 import { EmpleadoComponent } from '../empleado/empleado.component';
 import { EmpleadosService } from '../empleados.service';
 import { ServicioEmpleadosService } from '../servicio-empleados.service';
 
 @Component({
-  selector: 'app-empleados',
-  templateUrl: './empleados.component.html',
-  styleUrls: ['./empleados.component.css']
+  selector: 'app-proyectos-component',
+  templateUrl: './proyectos-component.component.html',
+  styleUrls: ['./proyectos-component.component.css']
 })
-export class EmpleadosComponent implements OnInit {
+export class ProyectosComponentComponent {
+  title = 'Formulario de alta de empleado';
 
   empleado: EmpleadoComponent = new EmpleadoComponent();
   empleados: Array<EmpleadoComponent>;
 
-  constructor(private miServicio: ServicioEmpleadosService,private empleadosService:EmpleadosService) {
-   
-  }
-  ngOnInit(): void {
-   // this.empleados = new Array<EmpleadoComponent>();
-   // this.empleados = this.empleadosService.empleados;
-  this.empleados =this.empleadosService.getEmpleadosServicio();
 
+  constructor(private router:Router,private miServicio: ServicioEmpleadosService,private empleadosService:EmpleadosService) {
+  
+  }
+  
+    volverHome():void{
+      this.router.navigate([''])
+    }
+  
+  
+  
+
+
+  ngOnInit(): void {
+    this.empleados = new Array<EmpleadoComponent>();
+    this.empleados = this.empleadosService.empleados;
   }
 
   
@@ -31,6 +41,7 @@ export class EmpleadosComponent implements OnInit {
     //this.empleados.push(this.empleado);
     this.empleadosService.agregarEmpleadoServicio(this.empleado);
     this.empleado = new EmpleadoComponent();
+    this.router.navigate([''])
   }
   VerificarCampos(): boolean {
     let resp: boolean = true;
@@ -48,4 +59,3 @@ export class EmpleadosComponent implements OnInit {
   }
 
 }
-

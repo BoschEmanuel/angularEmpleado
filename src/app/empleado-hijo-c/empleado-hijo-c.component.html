@@ -25,7 +25,7 @@
    
         <tr >
           
-          <th scope="row">{{i + 1}}</th>
+          <th scope="row"><a [routerLink]="['/actualizar',i]"> {{i + 1}}</a>  </th>
           <td>
             <p><span >{{emp.nombre}}</span></p>  
           </td>
