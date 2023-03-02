@@ -24,7 +24,7 @@ const appRoutes:Routes=[
   {path:'proyectos',component:ProyectosComponentComponent},
   {path:'quienes-somos',component:QuienesSomosComponentComponent},
   {path:'contacto',component:ContactoComponentComponent},
-  {path:'actualizar/:id',component:ActualizaComponentComponent}
+  {path:'actualizar',component:ActualizaComponentComponent}
   
 
 ];

@@ -15,6 +15,8 @@ export class ActualizaComponentComponent {
 
   indice:number;
 
+  accion:number;
+
   empleado: EmpleadoComponent = new EmpleadoComponent();
   empleados: Array<EmpleadoComponent>;
 
@@ -33,9 +35,12 @@ export class ActualizaComponentComponent {
 
   ngOnInit(): void {
    // this.empleados = new Array<EmpleadoComponent>();
+    this.accion = parseInt(this.route.snapshot.queryParams['accion']);
+
     this.empleados = this.empleadosService.empleados;
 
-    this.indice = this.route.snapshot.params['id'];
+    this.indice = parseInt(this.route.snapshot.queryParams['id']);
+    //this.route.snapshot.params['id'];
 
     this.empleado = this.empleadosService.encontrarEmpleado(this.indice);
   }
@@ -63,6 +68,15 @@ export class ActualizaComponentComponent {
     this.router.navigate(['']);
     }
 
+    AccionEmpleado(){
+      if(this.accion == 1)
+      {
+        this.ModificarEmpleado();
+      }
+      else{
+        this.EliminarEmpleado();
+      }
+    }
     
 
 
