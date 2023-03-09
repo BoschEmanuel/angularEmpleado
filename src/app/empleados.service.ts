@@ -26,6 +26,8 @@ export class EmpleadosService{
         try {
            let emp:EmpleadoComponent = this.encontrarEmpleado(indice);
            emp = empleado;
+
+           this.dataService.actualizarEmpleado(indice,empleado);
         } catch (error) {
             throw new Error("No se encontro un empleado con el indice "+ indice);
         }
@@ -34,14 +36,23 @@ export class EmpleadosService{
       eliminarEmpleadoServicio(indice: number) {
         try {
          this.empleados.splice(indice,1);
+         this.dataService.eliminarEmpleado(indice);
+         this.dataService.guardarEmpleados(this.empleados);
          } catch (error) {
              throw new Error("No se encontro un empleado con el indice "+ indice);
          }
       }
     
 
-    getEmpleadosServicio(): Array<EmpleadoComponent> {
-        return this.empleados;
+    getEmpleadosServicio(){
+        //:Array<EmpleadoComponent>
+        
+        //return this.empleados;
+        return this.dataService.cargarEmpleados();
+    }
+
+    setEmpleados(misEmpleados: Array<EmpleadoComponent> ){
+        this.empleados = misEmpleados;
     }
 
     encontrarEmpleado(indice: number): EmpleadoComponent {

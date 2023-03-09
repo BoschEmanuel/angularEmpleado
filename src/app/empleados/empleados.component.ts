@@ -19,7 +19,12 @@ export class EmpleadosComponent implements OnInit {
   ngOnInit(): void {
    // this.empleados = new Array<EmpleadoComponent>();
    // this.empleados = this.empleadosService.empleados;
-  this.empleados =this.empleadosService.getEmpleadosServicio();
+  //this.empleados =this.empleadosService.getEmpleadosServicio();
+  this.empleadosService.getEmpleadosServicio().subscribe(misEmpelados =>{
+    console.log(misEmpelados);
+    this.empleados = Object.values( misEmpelados);
+    this.empleadosService.setEmpleados(this.empleados);
+  });
 
   }
 
