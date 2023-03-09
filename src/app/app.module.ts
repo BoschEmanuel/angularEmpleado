@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,8 @@ import { QuienesSomosComponentComponent } from './quienes-somos-component/quiene
 import { ContactoComponentComponent } from './contacto-component/contacto-component.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ActualizaComponentComponent } from './actualiza-component/actualiza-component.component';
+import { ErrorPersonalizadoComponentComponent } from './error-personalizado-component/error-personalizado-component.component';
+import { DataSevices } from './data.services';
 
 
 const appRoutes:Routes=[
@@ -24,8 +27,8 @@ const appRoutes:Routes=[
   {path:'proyectos',component:ProyectosComponentComponent},
   {path:'quienes-somos',component:QuienesSomosComponentComponent},
   {path:'contacto',component:ContactoComponentComponent},
-  {path:'actualizar',component:ActualizaComponentComponent}
-  
+  {path:'actualizar',component:ActualizaComponentComponent},
+  {path:'**',component:ErrorPersonalizadoComponentComponent}
 
 ];
 
@@ -40,15 +43,17 @@ const appRoutes:Routes=[
     HomeComponentComponent,
     QuienesSomosComponentComponent,
     ContactoComponentComponent,
-    ActualizaComponentComponent
+    ActualizaComponentComponent,
+    ErrorPersonalizadoComponentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
-  providers: [ServicioEmpleadosService,EmpleadosService],
+  providers: [ServicioEmpleadosService,EmpleadosService,DataSevices],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
