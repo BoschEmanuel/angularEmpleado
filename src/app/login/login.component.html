@@ -1,0 +1,21 @@
+<p>login works!</p>
+
+
+<div >
+    <form class="form-group" #miFormulario="ngForm" (ngSubmit)="login(miFormulario)" > 
+        <div class="input-group">
+            <span class="input-group-text">Email:</span>
+            <input type="text" name="email" class="form-control" ngModel>
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-text">Password:</span>
+            <input type="text" name="password" class="form-control" ngModel>
+        </div>
+        <br>
+
+        <input type="submit" class="btn btn-primary" value="Iniciar Sesion" >
+        <!-- [disabled]="!VerificarCampos()" (click)="AgregarEmpleado()" -->
+    </form>
+
+</div> 

@@ -19,6 +19,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { ActualizaComponentComponent } from './actualiza-component/actualiza-component.component';
 import { ErrorPersonalizadoComponentComponent } from './error-personalizado-component/error-personalizado-component.component';
 import { DataSevices } from './data.services';
+import { LoginComponent } from './login/login.component';
+import { LoginService } from './login.services';
 
 
 const appRoutes:Routes=[
@@ -28,6 +30,7 @@ const appRoutes:Routes=[
   {path:'quienes-somos',component:QuienesSomosComponentComponent},
   {path:'contacto',component:ContactoComponentComponent},
   {path:'actualizar',component:ActualizaComponentComponent},
+  {path:'login',component:LoginComponent},
   {path:'**',component:ErrorPersonalizadoComponentComponent}
 
 ];
@@ -44,7 +47,8 @@ const appRoutes:Routes=[
     QuienesSomosComponentComponent,
     ContactoComponentComponent,
     ActualizaComponentComponent,
-    ErrorPersonalizadoComponentComponent
+    ErrorPersonalizadoComponentComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +57,7 @@ const appRoutes:Routes=[
     RouterModule.forRoot(appRoutes),
     HttpClientModule
   ],
-  providers: [ServicioEmpleadosService,EmpleadosService,DataSevices],
+  providers: [ServicioEmpleadosService,EmpleadosService,DataSevices,LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

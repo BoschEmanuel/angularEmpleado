@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { EmpleadoComponent } from "./empleado/empleado.component";
+import { LoginService } from "./login.services";
 
 
 @Injectable()
@@ -10,7 +11,7 @@ export class DataSevices{
 /**
  * metodo constiructor del servicio de datos para firebase
  */
-    constructor(private httpClient:HttpClient) {
+    constructor(private httpClient:HttpClient,private loginService:LoginService) {
 
     }
 
@@ -35,7 +36,9 @@ export class DataSevices{
     }
 
     cargarEmpleados(): Observable<Object>{
-       let test =    this.httpClient.get('https://mis-clientes-87d71-default-rtdb.firebaseio.com/datos.json');
+        const token = this.loginService.getIdToken();
+        let test =    this.httpClient.get('https://mis-clientes-87d71-default-rtdb.firebaseio.com/datos.json?auth='+token);
+
        return test;
     }
 
