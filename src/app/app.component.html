@@ -17,7 +17,18 @@
                 
                 <li class="nav-item">
                   <a class="nav-link" href="/contacto">Contacto</a>
-                </li>
+                </li>               
+                </ul>
+              </div>
+              <div class="d-flex">
+                <ul class="navbar-nav">
+                  
+                  <li class="nav-item" *ngIf="!estaLogeado()">
+                    <a class="nav-link" href="/login">Log in</a>
+                  </li>
+                  <li class="nav-item" *ngIf="estaLogeado()">
+                    <a class="nav-link" (click)="logOut()" href="#">Logout</a>
+                  </li>
                 </ul>
               </div>
             </div>

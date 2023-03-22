@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import firebase from 'firebase/compat/app';
+import { LoginService } from './login.services';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,13 @@ import firebase from 'firebase/compat/app';
 export class AppComponent {
   title = 'Formulario de empleados';
 
-
+/**
+ *
+ */
+constructor(private loginService:LoginService) {
+  
+  
+}
 
   ngOnInit():void{
 
@@ -31,4 +38,13 @@ export class AppComponent {
     firebase.initializeApp(firebaseConfig);
   }
   
+
+
+  estaLogeado(){
+    return this.loginService.estaLogeado();
+  }
+
+  logOut(){
+    return this.loginService.logOut();
+  }
 }

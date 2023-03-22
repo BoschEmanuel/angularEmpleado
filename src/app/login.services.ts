@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
+import { CookieService } from 'ngx-cookie-service';
 
 
 
@@ -13,9 +14,9 @@ export class LoginService{
     token:string;
 
     /**
-     *
+     * clase de log in 
      */
-    constructor(private router:Router) {
+    constructor(private router:Router,private cookie:CookieService) {
      
     }
 
@@ -26,8 +27,10 @@ export class LoginService{
             firebase.auth().currentUser?.getIdToken().then(
                 token => {
                     this.token = token;
+                    this.cookie.set("token",token);
                     this.router.navigate(['/']);
                     this.token = token;
+
                 }
             )
         }
@@ -35,7 +38,26 @@ export class LoginService{
     }
 
     getIdToken(){
-        return this.token;
+
+        //return this.token;
+        return this.cookie.get("token");
+    }
+
+    estaLogeado(){
+        //return this.token;
+        return this.cookie.get("token");
+       
+    }
+
+    logOut(){
+        firebase.auth().signOut().then(()=> {
+            this.token = "";
+            this.cookie.set("token","");
+            this.router.navigate(['/']);  
+            window.location.reload();
+            
+
+        });
     }
  
 }
